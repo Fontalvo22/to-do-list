@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+        <div></div>
+    <div class="app-container" id="taskList">
+        <h1 class="app-header">TO DO LIST</h1>
+        <div class="add-task">
+            <input type="text" autocomplete="off" placeholder="Add New Task" id="task-name" class="task-input">
+            <input type="submit" value="" class="submit-task" id="create-task-btn" title="Add Task">
+        </div>
+            <ul class="task-list" id="task-list">
+
+                {{#each data}}
+                    <li class="task-list-item">
+                        <input type="checkbox" class="check-task">
+                        <input value="{{this.descripcion}}" data-item="{{this.tarea_id}}" type="text" class="task-list-item-label">
+                        </input>
+                        {{!-- <span>{{this.descripcion}}</span> --}}
+                        <div class="icons-container">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check icon-tabler-check" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                            <path d="M9 12l2 2l4 -4" />
+                        </svg>
+                        <span class="delete-btn" onClick="deleteTask(event)" title="Delete Task" data-item="{{this.tarea_id}}"></span>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+
+            <div class="container-pagination">
+                <div class="nav nav-paginate">
+                    <ul>
+
+                        {{#each pages}}
+                            {{#if_equal this.page 1}}
+                                <li>
+                                    <button class="pagination-button active" data-page="{{this.page}}" data-limit="{{this.limit}}" data-offset="{{this.offset}}">{{this.page}}</button>
+                                </li>
+                                {{else}}
+                                <li>
+                                    <button class="pagination-button" data-page="{{this.page}}" data-limit="{{this.limit}}" data-offset="{{this.offset}}">{{this.page}}</button>
+                                </li>
+                            {{/if_equal}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer style="width: 100%;">
+            <h6 class="text-center" style="text-align: center;">© 2023 Developed by Franklin Fontalvo</h6>
+        </footer>
+
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/pagination.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.min.css" integrity="sha256-ZCK10swXv9CN059AmZf9UzWpJS34XvilDMJ79K+WOgc=" crossorigin="anonymous">        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js" integrity="sha256-5+4UA0RwHxrLdxuo+/LioZkIerSs8F/VDnV4Js9ZdwQ=" crossorigin="anonymous"></script>
+        <script src="/js/addTask.js"></script>
+        <script src="/js/pagination.js"></script>
+        <script src="/js/setUpdateListener.js"></script>
+
+        <script src="/js/updateTask.js"></script>
+
+        <script src="/js/deleteTask.js"></script>
+
+</body>
+</html>

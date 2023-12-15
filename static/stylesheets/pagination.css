@@ -1,0 +1,46 @@
+.container-pagination{
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+}
+.nav ul{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.nav ul li{
+    padding: 0px 5px;
+}
+.nav{
+    width: 80%;
+}
+
+
+.nav ul button.active{
+    background-color: #ff3d46;
+}
+
+.nav ul li button{
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    border: 0px;
+    padding: 10px 20px;
+    border-radius: 100px;
+    color: #fff;
+}
+.nav ul li button:hover{
+    cursor: pointer;
+}
+.nav-paginate{
+    overflow-x: scroll;
+}
+.nav-paginate::-webkit-scrollbar {
+
+    height: 8px;    /* Tamaño del scroll en horizontal */
+}
+
+.nav-paginate::-webkit-scrollbar-thumb {
+    background: #ff3d46;
+    border-radius: 4px;
+}
