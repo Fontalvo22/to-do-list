@@ -13,6 +13,7 @@ const addTask = () => {
     }
 
     const taskList = document.getElementById('task-list');
+    const childrens = taskList.querySelectorAll('li');
     const temp = taskList.innerHTML;
 
     fetch('http://localhost:3000/add-task', options)
@@ -35,12 +36,24 @@ const addTask = () => {
                 </div>
             </li>
         `;
-
-        lastChild.classList.add('deleted-item');
-        setTimeout(() => {
-            lastChild.remove();
+        
+        if (lastChild == null) {
             taskList.insertAdjacentHTML('afterbegin', listItem);
-        }, 800);
+        }else{
+            if (childrens.length > 9) {
+                lastChild.classList.add('deleted-item');
+                setTimeout(() => {
+                    lastChild.remove();
+                    taskList.insertAdjacentHTML('afterbegin', listItem);
+                    // console.log(lastChild==taskList);
+                }, 800);
+                
+            }else{
+                taskList.insertAdjacentHTML('afterbegin', listItem);
+
+            }
+        }
+
     })
     .catch(err => console.error(err));
 }
