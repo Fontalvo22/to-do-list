@@ -26,7 +26,7 @@ Then, open the root of the project and execute
 When the commando executes succesfully, you can run
 
 ```bash
-  npm run dev
+  npm run start
 ```
 
 This command execute the the project on http://localhost:3000
