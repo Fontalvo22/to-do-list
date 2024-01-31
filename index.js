@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000;
+const port = 80;
 const countPages = require('./helpers/countPages');
 const getPaginatedData = require('./helpers/getPaginatedData');
 const findNextElementIndex = require('./helpers/findNextElementIndex');
